@@ -1,0 +1,320 @@
+/* --- Variables y Reset --- */
+:root {
+    --primary-color: #1a1a1a; /* Negro suave elegante */
+    --accent-color: #C5A059; /* Dorado/Arena más sutil */
+    --bg-light: #f9f9f9;
+    --text-color: #444;
+    --white: #ffffff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --success: #28a745;
+    --error: #dc3545;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+/* --- Tipografía y Utilidades --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+}
+
+.section-padding { padding: 100px 8%; }
+.section-header { text-align: center; margin-bottom: 80px; }
+
+.line {
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+    margin: 25px auto;
+}
+
+.bg-light { background-color: var(--bg-light); }
+
+/* --- Navegación --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    background: rgba(255, 255, 255, 0.98);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--accent-color); }
+
+.btn-nav {
+    border: 1px solid var(--primary-color);
+    padding: 10px 25px;
+    transition: all 0.3s;
+}
+
+.btn-nav:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.hamburger { display: none; }
+
+/* --- HERO SLIDER (Estilo YLAB) --- */
+#hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Contenedor Slider */
+.hero-slider {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
+}
+
+/* Slides individuales */
+.slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* Invisible por defecto */
+    transform: scale(1.1); /* Ligero zoom inicial */
+    transition: opacity 2s ease-in-out, transform 6s ease-out; /* Transición muy suave */
+}
+
+/* Slide Activo */
+.slide.active {
+    opacity: 1;
+    transform: scale(1); /* Vuelve a tamaño normal */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.25); /* Oscurecimiento ligero */
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: var(--white);
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 18px 45px;
+    background-color: var(--white);
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* --- PROYECTOS (Estilo Galería Limpia) --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Columnas */
+    gap: 80px 50px; /* Separación vertical grande, horizontal media */
+}
+
+.project-item {
+    cursor: pointer;
+    opacity: 0; /* Para animación JS */
+}
+
+.project-image {
+    overflow: hidden;
+    margin-bottom: 25px;
+    aspect-ratio: 4/3; /* Mantiene formato rectangular */
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+/* Efecto Hover Zoom suave */
+.project-item:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding-right: 20px;
+}
+
+.project-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.project-info p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Testimonios --- */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    background: var(--white);
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    border-top: 2px solid var(--accent-color);
+}
+
+.card p { font-style: italic; margin-bottom: 25px; color: #666; font-size: 1.05rem; }
+.card h4 { font-size: 1rem; margin-bottom: 5px; font-weight: 700; }
+.card .role { font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- Formulario & Contacto --- */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+}
+
+.contact-info h2 { font-size: 3rem; margin-bottom: 30px; line-height: 1.2; }
+.info-list { list-style: none; margin-top: 40px; }
+.info-list li { margin-bottom: 20px; font-size: 1rem; display: flex; align-items: center; gap: 15px; color: #555; }
+
+.form-group { margin-bottom: 25px; position: relative; }
+.form-group label { display: block; margin-bottom: 10px; font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+input, select {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    font-family: var(--font-body);
+    outline: none;
+    transition: all 0.3s;
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+input:focus, select:focus { border-bottom-color: var(--primary-color); }
+input.valid { border-bottom-color: var(--success); }
+input.invalid { border-bottom-color: var(--error); }
+
+.error-msg {
+    color: var(--error);
+    font-size: 0.75rem;
+    display: none;
+    margin-top: 5px;
+}
+input.invalid + .error-msg { display: block; }
+
+.btn-submit {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn-submit:hover { background: var(--accent-color); }
+
+footer {
+    text-align: center;
+    padding: 60px 0;
+    background: var(--primary-color);
+    color: #666;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 900px) {
+    .section-padding { padding: 80px 5%; }
+    .projects-grid { grid-template-columns: 1fr; gap: 60px; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .contact-container { grid-template-columns: 1fr; gap: 50px; }
+    .nav-links { display: none; } /* Oculto para demo simple */
+    .hamburger { display: block; cursor: pointer; }
+    .hamburger span { display: block; width: 25px; height: 2px; background: #333; margin: 5px 0; }
+}

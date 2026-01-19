@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Interiors | superior design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">VELVET INTERIORS</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#gallery">projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact" class="btn-nav">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('img/hero-1.jpg');"></div>
+            <div class="slide" style="background-image: url('img/hero-2.jpg');"></div>
+            <div class="slide" style="background-image: url('img/hero-3.jpg');"></div>
+            <div class="slide" style="background-image: url('img/hero-4.jpg');"></div>
+        </div>
+
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1>Redefining Elegance</h1>
+            <p>Interior architecture for spaces that demand distinction.</p>
+            <a href="#contact" class="btn-primary">Request a quote</a>
+        </div>
+    </header>
+
+    <section id="gallery" class="section-padding">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <div class="line"></div>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="img/project-1.jpg" alt="Proyecto 1">
+                </div>
+                <div class="project-info">
+                    <h3>Residential space</h3>
+                    <p>Reforma Integral / Madrid</p>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="img/project-2.jpg" alt="Proyecto 2">
+                </div>
+                <div class="project-info">
+                    <h3>renovated kitchen</h3>
+                    <p>Diseño Corporativo / Barcelona</p>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="img/project-3.jpg" alt="Proyecto 3">
+                </div>
+                <div class="project-info">
+                    <h3>Penthouse Serrano</h3>
+                    <p>Residencial de Lujo / Madrid</p>
+                </div>
+            </div>
+
+             <div class="project-item">
+                <div class="project-image">
+                    <img src="img/project-4.jpg" alt="Proyecto 4">
+                </div>
+                <div class="project-info">
+                    <h3>Hotel Boutique Palau</h3>
+                    <p>Contract / Valencia</p>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="img/project-5.jpg" alt="Proyecto 5">
+                </div>
+                <div class="project-info">
+                    <h3>Villa Pedralbes</h3>
+                    <p>Residencial / Barcelona</p>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="img/project-6.jpg" alt="Proyecto 6">
+                </div>
+                <div class="project-info">
+                    <h3>new spaces</h3>
+                    <p>Oficinas / Málaga</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section-padding bg-light">
+        <div class="section-header">
+            <h2>La experiencia del cliente</h2>
+            <div class="line"></div>
+        </div>
+        <div class="testimonials-grid">
+            <div class="card">
+                <p>"They made my dining room the best space in the whole house."</p>
+                <h4>- Elena M.</h4>
+                <span class="role">Barcelona</span>
+            </div>
+            <div class="card">
+                <p>"Velvet Interiors perfectly understood the understated elegance that our firm required."</p>
+                <h4>- Carlos R.</h4>
+                <span class="role">Valencia</span>
+            </div>
+            <div class="card">
+                <p>"The increase in my property's value after the renovation was considerable. Impeccable work."</p>
+                <h4>- Sofia L.</h4>
+                <span class="role">Madrid</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Let's talk about your project</h2>
+                <p>Leave us your details and one of our consultants will contact you for an initial assessment.</p>
+                <ul class="info-list">
+                    <li>📍 Calle Serrano, Madrid</li>
+                    <li>📞 +34 910 000 000</li>
+                    <li>✉️ info@velvetinteriors.com</li>
+                </ul>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">name</label>
+                    <input type="text" id="name" placeholder="Ej. albert Smith">
+                    <small class="error-msg">The name is required</small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="name@company.com">
+                    <small class="error-msg">Enter a valid email address</small>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Estimated Budget</label>
+                    <select id="budget">
+                        <option value="">Select a range</option>
+                        <option value="low">€30k - €80k</option>
+                        <option value="med">€80k - €150k</option>
+                        <option value="high">+€150k</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Request a Private Consultation</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Velvet Interiors. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
